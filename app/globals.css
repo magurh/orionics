@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+body {
+  font-size: 18px;
+  line-height: 1.6;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 520px at 15% 10%, rgba(59, 130, 246, 0.28), transparent 55%),
+    radial-gradient(700px 450px at 85% 18%, rgba(14, 165, 233, 0.16), transparent 55%),
+    radial-gradient(1000px 560px at 50% 95%, rgba(99, 102, 241, 0.14), transparent 60%),
+    linear-gradient(180deg, #060B18 0%, #050815 35%, #02040B 100%);
+  color: hsl(210 20% 96%);
+}
+
+.bg-grid {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(70% 70% at 50% 20%, black 40%, transparent 75%);
+}
+
+@layer components {
+  .glass { @apply bg-panel/70 backdrop-blur-xl border border-border/70 shadow-soft; }
+  .chip { @apply inline-flex items-center gap-2 rounded-full border border-border/70 bg-panel2/55 px-3 py-1.5 text-base text-muted; }
+  .btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-base font-medium transition; }
+  .btn-primary { @apply btn bg-accent text-black hover:brightness-110; }
+  .btn-ghost { @apply btn border border-border/70 bg-panel2/40 text-ink hover:bg-panel2/70; }
+  .input { @apply w-full rounded-xl border border-border/70 bg-panel2/40 px-4 py-3.5 text-base text-ink placeholder:text-muted/70 outline-none focus:ring-2 focus:ring-accent/50; }
+  .textarea { @apply input min-h-[160px] resize-y; }
+}
+
+/* SVG line draw animation (repeats every 30s) */
+.orx-draw {
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  animation: orx-draw-line 30s linear infinite;
+}
+
+@keyframes orx-draw-line {
+  0% { stroke-dashoffset: 1800; opacity: 0.55; }
+  6% { opacity: 1; }
+  55% { stroke-dashoffset: 0; opacity: 1; }
+  85% { stroke-dashoffset: 0; opacity: 0.75; }
+  100% { stroke-dashoffset: 1800; opacity: 0.55; }
+}
