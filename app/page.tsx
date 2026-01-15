@@ -240,11 +240,13 @@ export default function Page() {
 
           {/* The Second Div - Re-imagined as a "Service Standards" Row */}
           <div className="grid gap-6 md:grid-cols-3">
-            {[
-              { icon: "shield", text: "Direct senior oversight, end-to-end." },
-              { icon: "chart", text: "Clear metrics and decision-support outputs." },
-              { icon: "code", text: "Clean implementations with documentation." },
-            ].map((item, i) => (
+            {(
+              [
+                { icon: "shield", text: "Direct senior oversight, end-to-end." },
+                { icon: "chart", text: "Clear metrics and decision-support outputs." },
+                { icon: "code", text: "Clean implementations with documentation." },
+              ] as { icon: Parameters<typeof Icon>[0]["name"]; text: string }[]
+            ).map((item, i) => (
               <div key={i} className="glass rounded-2xl p-6 flex items-center gap-4">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-panel2/45 text-ink">
                   <Icon name={item.icon} className="h-5 w-5" />
