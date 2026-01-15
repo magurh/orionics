@@ -6,13 +6,13 @@ import { useMemo } from "react";
  * Lightweight animated time-series line. The line draws left-to-right and repeats every 30s.
  */
 export function AnimatedLine({
-  title = "Customer case study: stock returns",
+  title = "Customer case study. Stock returns.",
 }: {
   title?: string;
   subtitle?: string;
 }) {
   const points = useMemo(() => {
-    const n = 80;
+    const n = 120;
     const xs: number[] = [];
     const ys: number[] = [];
     for (let i = 0; i < n; i++) {
@@ -45,15 +45,9 @@ export function AnimatedLine({
   }, [points]);
 
   return (
-    <div className="glass rounded-3xl p-5">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <div className="mt-1 text-base text-muted">{title}</div>
-        </div>
-      </div>
 
       <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-black/20">
-        <svg viewBox={`0 0 ${W} ${H}`} className="block h-[180px] w-full" role="img" aria-label="Animated line graph">
+        <svg viewBox={`0 0 ${W} ${H}`} className="block h-[280px] w-full" role="img" aria-label="Animated line graph">
           <defs>
             <linearGradient id="strokeGrad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="hsl(205 95% 60%)" stopOpacity="0.0" />
@@ -91,6 +85,5 @@ export function AnimatedLine({
           />
         </svg>
       </div>
-    </div>
   );
 }

@@ -82,7 +82,7 @@ function MiniCard({
         </div>
         <div>
           <div className="text-lg font-semibold">{title}</div>
-          <p className="mt-1 text-sm text-muted">{body}</p>
+          <p className="mt-1 text-base text-muted">{body}</p>
         </div>
       </div>
     </div>
@@ -97,18 +97,12 @@ export default function Page() {
         <Container>
           <div className="grid gap-10 md:grid-cols-12 md:items-start">
             <div className="md:col-span-7">
-              <div className="flex flex-wrap gap-2">
-                <Pill icon="badge" text="UK limited company" />
-                <Pill icon="shield" text="Quality-first delivery" />
-                <Pill icon="bolt" text="Senior-led" />
-              </div>
-
               <h1 className="mt-6 text-5xl font-semibold tracking-tight md:text-6xl">
-                Research, analytics & AI engineering
+                 Specialist Research & Analytics
               </h1>
 
               <p className="mt-5 max-w-2xl text-lg text-muted md:text-xl">
-                Orionics Ltd supports technically demanding projects with precise thinking, clear deliverables, and robust implementations.
+                Orionics Ltd provides the mathematical oversight and technical depth required to uphold the stability and security of your critical systems.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -129,24 +123,6 @@ export default function Page() {
                 <p className="mt-4 text-base text-muted md:text-lg">
                   “After working together for years, our expectations are always high — and Orionics consistently exceeds them.”
                 </p>
-                <div className="mt-4 text-xs text-muted">— Client feedback (anonymised)</div>
-              </div>
-
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                <div className="glass rounded-2xl p-5">
-                  <div className="flex items-center gap-2 text-sm font-semibold">
-                    <Icon name="chart" className="h-4 w-4" />
-                    <span>Engagement</span>
-                  </div>
-                  <div className="mt-2 text-base text-muted">Daily or hourly consulting</div>
-                </div>
-                <div className="glass rounded-2xl p-5">
-                  <div className="flex items-center gap-2 text-sm font-semibold">
-                    <Icon name="code" className="h-4 w-4" />
-                    <span>Deliverables</span>
-                  </div>
-                  <div className="mt-2 text-base text-muted">Reports • Models • Systems</div>
-                </div>
               </div>
             </div>
           </div>
@@ -157,21 +133,15 @@ export default function Page() {
       <section id="services" className="mt-16">
         <Container>
           <SectionHeading
-            eyebrow="Services"
+            eyebrow="Our Services"
             title="Three ways we help"
             subtitle="Straightforward scopes. Clear handover."
           />
 
           <div className="grid gap-4 md:grid-cols-3">
-            <MiniCard icon="spark" title="Research" body="Feasibility and technical due diligence for high-stakes decisions." />
-            <MiniCard icon="chart" title="Analytics" body="Statistical insight and ML-driven modelling on complex datasets." />
-            <MiniCard icon="code" title="Development" body="Production-quality algorithms and software for demanding domains." />
-          </div>
-
-          <div className="mt-8 flex justify-center">
-            <div className="w-full max-w-2xl">
-              <AnimatedLine />
-            </div>
+            <MiniCard icon="spark" title="Research" body="Drawing on extensive mathematical expertise, we specialize in providing rigorous, in-depth studies and complex problem-solving." />
+            <MiniCard icon="chart" title="Analytics & Forecasting" body="Integrating advanced statistics and machine learning techniques into our pipelines, we turn raw data into actionable foresight and optimized decision-making." />
+            <MiniCard icon="code" title="Development" body="Delivering rigorous, production-quality algorithms and software architectures designed to solve challenges in the most demanding domains." />
           </div>
         </Container>
       </section>
@@ -183,37 +153,51 @@ export default function Page() {
           <SectionHeading
             eyebrow="Our Clients"
             title="Working with us"
-            subtitle="Reliable, fast, and transparent process."
+            subtitle="A reliable, fast, and transparent process from inception to delivery."
           />
 
-          <div className="mt-6 glass rounded-3xl p-6 md:p-8">
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="flex items-start gap-3">
-                <div className="grid h-9 w-9 place-items-center rounded-2xl border border-white/10 bg-panel2/45">
+          {/* Combined Box */}
+          <div className="mt-6 glass rounded-3xl p-6 md:p-10">
+            {/* Top Row: Info Grid */}
+            <div className="grid gap-8 md:grid-cols-3">
+              <div className="flex items-start gap-4">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl border border-white/10 bg-panel2/45">
                   <Icon name="badge" className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-base font-semibold">Pricing</div>
-                  <div className="mt-1 text-sm text-muted">Fixed daily or hourly rate, based on scope.</div>
+                  <div className="text-lg font-semibold">Pricing</div>
+                  <div className="mt-1 text-sm md:text-base text-muted">Competitive daily or hourly rates tailored to project complexity and scope.</div>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="grid h-9 w-9 place-items-center rounded-2xl border border-white/10 bg-panel2/45">
+
+              <div className="flex items-start gap-4">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl border border-white/10 bg-panel2/45">
                   <Icon name="shield" className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-base font-semibold">Quality control</div>
-                  <div className="mt-1 text-sm text-muted">Validation notes, limitations, and clean handover.</div>
+                  <div className="text-lg font-semibold">Quality Control</div>
+                  <div className="mt-1 text-sm md:text-base text-muted">Comprehensive validation reporting and documentation for seamless handovers.</div>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="grid h-9 w-9 place-items-center rounded-2xl border border-white/10 bg-panel2/45">
+
+              <div className="flex items-start gap-4">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl border border-white/10 bg-panel2/45">
                   <Icon name="bolt" className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-base font-semibold">Speed</div>
-                  <div className="mt-1 text-sm text-muted">Fast iteration without sacrificing correctness.</div>
+                  <div className="text-lg font-semibold">Speed</div>
+                  <div className="mt-1 text-sm md:text-base text-muted">Fast, agile iteration without sacrificing mathematical correctness and precision.</div>
                 </div>
+              </div>
+            </div>
+
+            {/* Visual Separator */}
+            <div className="my-10 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+            {/* Bottom Row: Centered Graph */}
+            <div className="flex flex-col items-center">
+              <div className="w-full max-w-5xl">
+                <AnimatedLine title="Case study: Algorithmic modeling of market volatility." />
               </div>
             </div>
           </div>
@@ -226,49 +210,59 @@ export default function Page() {
           <SectionHeading
             eyebrow="About"
             title="Specialist, hands-on consultancy"
-            subtitle="Led by a founder with a DPhil in Mathematics (University of Oxford)."
+            subtitle="Founded by an Oxford DPhil in Mathematics, we are built on a commitment to mathematical precision and deep technical insight."
           />
 
-          <div className="grid gap-4 md:grid-cols-12">
-            <div className="md:col-span-7">
-              <div className="glass rounded-3xl p-6 md:p-8">
-                <p className="text-lg text-muted md:text-xl">
-                  Orionics Ltd focuses on research-grade thinking and pragmatic delivery: de-risk ideas, strengthen decisions, and build reliable systems.
-                </p>
-              </div>
-            </div>
-            <div className="md:col-span-5">
-              <div className="glass rounded-3xl p-6 md:p-8">
-                <div className="text-lg font-semibold">What to expect</div>
-                <div className="mt-4 space-y-3 text-sm text-muted">
-                  <div className="flex items-center gap-3">
-                    <span className="grid h-9 w-9 place-items-center rounded-2xl border border-white/10 bg-panel2/45 text-ink">
-                      <Icon name="shield" className="h-5 w-5" />
-                    </span>
-                    <span>Direct senior oversight, end-to-end.</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="grid h-9 w-9 place-items-center rounded-2xl border border-white/10 bg-panel2/45 text-ink">
-                      <Icon name="chart" className="h-5 w-5" />
-                    </span>
-                    <span>Clear metrics and decision-support outputs.</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="grid h-9 w-9 place-items-center rounded-2xl border border-white/10 bg-panel2/45 text-ink">
-                      <Icon name="code" className="h-5 w-5" />
-                    </span>
-                    <span>Clean implementations with documentation.</span>
-                  </div>
+          {/* Identity Block - Now alone and more prominent */}
+          <div className="glass rounded-3xl p-6 md:p-12 mb-8">
+            <div className="max-w-4xl">
+              <h3 className="text-2xl md:text-3xl font-semibold mb-8 leading-tight">
+                Research-grade mathematics meets <br className="hidden md:block" /> pragmatic engineering at Orionics.
+              </h3>
+
+              <div className="grid md:grid-cols-2 gap-12">
+                <div className="space-y-3">
+                  <h4 className="text-primary font-semibold text-lg">Pragmatic Delivery</h4>
+                  <p className="text-base text-muted leading-relaxed">
+                    Applying deep technical expertise to mitigate risk and optimize decision quality through reliable, production-ready solutions.
+                  </p>
                 </div>
 
-                <div className="mt-6">
-                  <Link href="/contact" className="btn-primary w-full">Start a conversation</Link>
+                <div className="space-y-3 border-t md:border-t-0 md:border-l border-white/10 pt-8 md:pt-0 md:pl-10">
+                  <h4 className="text-primary font-semibold text-lg">Advanced Research</h4>
+                  <p className="text-base text-muted leading-relaxed">
+                    Conducting state-of-the-art studies across specialized sectors in mathematics, cryptography, and machine learning.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* The Second Div - Re-imagined as a "Service Standards" Row */}
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              { icon: "shield", text: "Direct senior oversight, end-to-end." },
+              { icon: "chart", text: "Clear metrics and decision-support outputs." },
+              { icon: "code", text: "Clean implementations with documentation." },
+            ].map((item, i) => (
+              <div key={i} className="glass rounded-2xl p-6 flex items-center gap-4">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-panel2/45 text-ink">
+                  <Icon name={item.icon} className="h-5 w-5" />
+                </span>
+                <span className="text-sm md:text-base font-medium text-muted">{item.text}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Unified Call to Action */}
+          <div className="mt-12 text-center">
+            <Link href="/contact" className="btn-primary px-10 py-4 text-lg">
+              Start a conversation
+            </Link>
+          </div>
         </Container>
       </section>
+
     </div>
   );
 }
