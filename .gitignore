@@ -3,5 +3,4 @@
 /out/
 /build
 .DS_Store
-.env*
 .env

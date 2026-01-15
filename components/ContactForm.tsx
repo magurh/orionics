@@ -9,11 +9,17 @@ type FormState = {
   message: string;
 };
 
-const initial: FormState = { email: "", title: "", topic: "", message: "" };
+const initial: FormState = {
+  email: "",
+  title: "",
+  topic: "",
+  message: "",
+};
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initial);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const isValid = useMemo(() => {
     const emailOk = /.+@.+\..+/.test(form.email.trim());
@@ -30,12 +36,31 @@ export function ContactForm() {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!isValid) return;
-    setSubmitted(true);
-    setForm(initial);
+    if (!isValid || sending) return;
+
+    setSending(true);
+    setSubmitted(false);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
+      setSubmitted(true);
+      setForm(initial);
+    } catch {
+      alert("Sorry — we couldn't send your message. Please try again in a moment.");
+    } finally {
+      setSending(false);
+    }
   }
+
 
   return (
     <div className="glass rounded-3xl p-6 md:p-8">
@@ -90,10 +115,10 @@ export function ContactForm() {
         <div className="flex items-center justify-between gap-4">
           <button
             type="submit"
-            className={"btn-primary " + (!isValid ? "opacity-60 cursor-not-allowed" : "")}
-            disabled={!isValid}
+            className={"btn-primary " + (!isValid || sending ? "opacity-60 cursor-not-allowed" : "")}
+            disabled={!isValid || sending}
           >
-            Send
+            {sending ? "Sending..." : "Send"}
           </button>
           <div className="text-xs text-muted">
             By submitting, you consent to us contacting you about your enquiry.
