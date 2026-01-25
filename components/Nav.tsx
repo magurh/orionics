@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Container } from "./Container";
+import Image from "next/image";
+
 
 export function Nav() {
   return (
@@ -9,9 +11,15 @@ export function Nav() {
           <div className="flex items-center justify-between py-4">
             <Link href="/" className="group inline-flex items-center gap-3">
               <div className="relative h-9 w-9 overflow-hidden rounded-xl border border-white/10 bg-panel2/40">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/40 to-accent2/25" />
-                <div className="absolute inset-0 opacity-60 [background:radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.35),transparent_55%)]" />
-              </div>
+  <Image
+    src="/logo.png"
+    alt="Orionics logo"
+    fill
+    className="object-cover"
+    priority
+  />
+</div>
+
               <div className="leading-tight">
                 <div className="text-base font-semibold tracking-tight">Orionics Ltd</div>
                 <div className="text-sm text-muted">Research • Analytics • Development</div>
